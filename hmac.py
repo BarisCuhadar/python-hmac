@@ -49,7 +49,7 @@ class HMAC:
                 """ key regeneration """
                 
                 if len(self.key) > self.blocksize:
-                        self.key = bytearray(self.hash_h(key).digest())
+                        self.key = bytearray(self.hash_h(self.key).digest())
                 i = len(self.key)
                 while i < self.blocksize:
                         self.key += b"\x00"
